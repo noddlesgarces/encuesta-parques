@@ -1,309 +1,308 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoGuía Dunas de Concón - Plataforma Multidispositivo</title>
-  <link rel="stylesheet" href="/dunas-concon/style.css">
-</head>
-<body>
+  <!DOCTYPE html>
+  <html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGuía Dunas de Concón - Plataforma Multidispositivo</title>
+    <link rel="stylesheet" href="/dunas-concon/style.css">
+  </head>
+  <body>
 
-  <!-- REQ-01: Accesibilidad Universal (Encabezado adaptable y bilingüe) -->
-  <div class="top-bar">
-    <div class="logo-container">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#2b5b29">
-        <path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
-      </svg>
-      <span class="logo-text">EcoGuía Concón</span>
+    <!-- REQ-01: Accesibilidad Universal (Encabezado adaptable y bilingüe) -->
+    <div class="top-bar">
+      <div class="logo-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#2b5b29">
+          <path d="M12 2L2 22h20L12 2zm0 3.99L19.53 19H4.47L12 5.99zM13 16h-2v2h2v-2zm0-6h-2v4h2v-4z"/>
+        </svg>
+        <span class="logo-text">EcoGuía Concón</span>
+      </div>
+
+      <!-- NUEVO MENÚ DE NAVEGACIÓN ANCLADO -->
+      <nav class="main-nav">
+        <a href="#">Inicio</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#mapa">Mapa</a>
+        <a href="#qr">QR</a>
+        <a href="#galeria">Galería</a>
+        <a href="#flora">Flora y Fauna</a>
+      </nav>
+
+      <div class="top-actions">
+        <div class="lang-switch">
+          <span class="active">ES</span>
+          <span>EN</span>
+        </div>
+        <button class="sos-btn" onclick="document.getElementById('modal-sos').classList.add('is-open')">SOS</button>
+      </div>
     </div>
 
-    <!-- NUEVO MENÚ DE NAVEGACIÓN ANCLADO -->
-    <nav class="main-nav">
-      <a href="#">Inicio</a>
-      <a href="#ubicacion">Ubicación</a>
-      <a href="#mapa">Mapa</a>
-      <a href="#qr">QR</a>
-      <a href="#galeria">Galería</a>
-      <a href="#flora">Flora y Fauna</a>
-    </nav>
-
-    <div class="top-actions">
-      <div class="lang-switch">
-        <span class="active">ES</span>
-        <span>EN</span>
-      </div>
-      <button class="sos-btn" onclick="document.getElementById('modal-sos').classList.add('is-open')">SOS</button>
+    <!-- REQ-04: Eficiencia y Rapidez (Alertas críticas en tiempo real inmediatas) -->
+    <div class="alert-banner">
+      <span style="font-size: 1.3rem;"></span>
+      <span><strong>Estado del Viento:</strong> Ráfagas moderadas en zona alta. Se recomienda el uso de anteojos de sol y mantenerse estrictamente dentro de los senderos demarcados.</span>
     </div>
-  </div>
 
-  <!-- REQ-04: Eficiencia y Rapidez (Alertas críticas en tiempo real inmediatas) -->
-  <div class="alert-banner">
-    <span style="font-size: 1.3rem;"></span>
-    <span><strong>Estado del Viento:</strong> Ráfagas moderadas en zona alta. Se recomienda el uso de anteojos de sol y mantenerse estrictamente dentro de los senderos demarcados.</span>
-  </div>
+    <!-- HERO DE BIENVENIDA -->
+    <div class="header-section">
 
-  <!-- HERO DE BIENVENIDA -->
-  <div class="header-section">
+      <h1>Bienvenido a las Dunas de Concón</h1>
 
-    <h1>Bienvenido a las Dunas de Concón</h1>
+      <p>
+        Descubre uno de los ecosistemas más importantes de Chile.
+        Explora senderos, biodiversidad y puntos de interés mediante nuestra guía interactiva.
+      </p>
 
-    <p>
-      Descubre uno de los ecosistemas más importantes de Chile.
-      Explora senderos, biodiversidad y puntos de interés mediante nuestra guía interactiva.
-    </p>
+      <br>
 
-    <br>
+      <img src="/dunas-concon/galeria/viento.webp" alt="Dunas de Concón">
 
-    <img src="/dunas-concon/galeria/viento.webp" alt="Dunas de Concón">
+      <p style="margin-top:10px;">
+      </p>
 
-    <p style="margin-top:10px;">
-      INSERTAR IMAGEN PRINCIPAL DE LAS DUNAS
-    </p>
+      <section class="stats-section">
+        <div class="stats-grid">
 
-    <section class="stats-section">
-      <div class="stats-grid">
-
-        <div class="card-info">
-          <h2>30 Ha</h2>
-          <p>Área protegida</p>
-        </div>
-
-        <div class="card-info">
-          <h2>50+</h2>
-          <p>Especies registradas</p>
-        </div>
-
-        <div class="card-info">
-          <h2>3</h2>
-          <p>Senderos principales</p>
-        </div>
-
-        <div class="card-info">
-          <h2>100%</h2>
-          <p>Conservación activa</p>
-        </div>
-
-      </div>
-    </section>
-  </div>
-
-  <!-- CONTENEDOR PRINCIPAL: Adapta su distribución según el tamaño de la pantalla (Grid de 2 columnas en PC, 1 columna en Móvil) -->
-  <main class="main-container">
-
-    <!-- COLUMNA PRINCIPAL / IZQUIERDA (MAPA INTERACTIVO) -->
-    <div class="left-column">
-
-      <!-- Ubicación / Geolocalización -->
-      <section id="ubicacion" class="card-info">
-        <h4>¿Dónde te encuentras?</h4>
-        <p>
-          Utiliza la geolocalización para encontrar rutas seguras,
-          miradores y puntos de interés dentro del santuario.
-        </p>
-        <br>
-        <button class="btn btn-primary">
-          Detectar ubicación
-        </button>
-      </section>
-
-      <section id="mapa" class="map-section">
-        <h2 class="section-title">
-          Mapa de Navegación del Santuario
-          <span class="status-badge">Geolocalización Activa</span>
-        </h2>
-
-        <div class="map-container">
-          <!-- Representación digital del mapa topográfico -->
-          <svg class="map-graphic" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-            <!-- Relieve de dunas -->
-            <path d="M0 130 Q 120 70 240 140 T 400 90 L 400 250 L 0 250 Z" fill="#dfd6bd"/>
-            <path d="M0 190 Q 170 120 280 170 T 400 140 L 400 250 L 0 250 Z" fill="#d4c9ad"/>
-            <!-- REQ-02: Guiado de Rutas Seguras (Trazado de sendero permitido) -->
-            <path d="M 30 250 C 70 160, 140 140, 230 160 S 330 90, 370 40" fill="transparent" stroke="var(--primary)" stroke-width="4" stroke-dasharray="8 6"/>
-            <!-- Zona sensible fuera de ruta -->
-            <path d="M 230 160 C 260 210, 300 190, 400 210" fill="transparent" stroke="var(--danger)" stroke-width="3" stroke-dasharray="4 4" opacity="0.4"/>
-          </svg>
-
-          <!-- Pin de localización simulado en ruta -->
-          <div class="pin-you">
-            <div class="pulse"></div>
-            <div class="dot"></div>
+          <div class="card-info">
+            <h2>30 Ha</h2>
+            <p>Área protegida</p>
           </div>
 
-          <!-- Panel informativo de estado de navegación -->
-          <div class="ruta-activa-panel">
-            <span style="font-size: 1.8rem;"></span>
-            <div>
-              <strong style="font-size: 1rem; color: var(--primary);">Usted está en: Sendero Mirador Sur</strong>
-              <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 2px;">Ruta peatonal habilitada. Próximo punto de información QR a 40 metros.</div>
+          <div class="card-info">
+            <h2>50+</h2>
+            <p>Especies registradas</p>
+          </div>
+
+          <div class="card-info">
+            <h2>3</h2>
+            <p>Senderos principales</p>
+          </div>
+
+          <div class="card-info">
+            <h2>100%</h2>
+            <p>Conservación activa</p>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- CONTENEDOR PRINCIPAL: Adapta su distribución según el tamaño de la pantalla (Grid de 2 columnas en PC, 1 columna en Móvil) -->
+    <main class="main-container">
+
+      <!-- COLUMNA PRINCIPAL / IZQUIERDA (MAPA INTERACTIVO) -->
+      <div class="left-column">
+
+        <!-- Ubicación / Geolocalización -->
+        <section id="ubicacion" class="card-info">
+          <h4>¿Dónde te encuentras?</h4>
+          <p>
+            Utiliza la geolocalización para encontrar rutas seguras,
+            miradores y puntos de interés dentro del santuario.
+          </p>
+          <br>
+          <button class="btn btn-primary">
+            Detectar ubicación
+          </button>
+        </section>
+
+        <section id="mapa" class="map-section">
+          <h2 class="section-title">
+            Mapa de Navegación del Santuario
+            <span class="status-badge">Geolocalización Activa</span>
+          </h2>
+
+          <div class="map-container">
+            <!-- Representación digital del mapa topográfico -->
+            <svg class="map-graphic" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Relieve de dunas -->
+              <path d="M0 130 Q 120 70 240 140 T 400 90 L 400 250 L 0 250 Z" fill="#dfd6bd"/>
+              <path d="M0 190 Q 170 120 280 170 T 400 140 L 400 250 L 0 250 Z" fill="#d4c9ad"/>
+              <!-- REQ-02: Guiado de Rutas Seguras (Trazado de sendero permitido) -->
+              <path d="M 30 250 C 70 160, 140 140, 230 160 S 330 90, 370 40" fill="transparent" stroke="var(--primary)" stroke-width="4" stroke-dasharray="8 6"/>
+              <!-- Zona sensible fuera de ruta -->
+              <path d="M 230 160 C 260 210, 300 190, 400 210" fill="transparent" stroke="var(--danger)" stroke-width="3" stroke-dasharray="4 4" opacity="0.4"/>
+            </svg>
+
+            <!-- Pin de localización simulado en ruta -->
+            <div class="pin-you">
+              <div class="pulse"></div>
+              <div class="dot"></div>
+            </div>
+
+            <!-- Panel informativo de estado de navegación -->
+            <div class="ruta-activa-panel">
+              <span style="font-size: 1.8rem;"></span>
+              <div>
+                <strong style="font-size: 1rem; color: var(--primary);">Usted está en: Sendero Mirador Sur</strong>
+                <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 2px;">Ruta peatonal habilitada. Próximo punto de información QR a 40 metros.</div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- COLUMNA LATERAL / DERECHA (INFORMACIÓN, BOTONES Y EDUCACIÓN AMBIENTAL) -->
-    <div class="right-column">
-
-      <!-- Accesos rápidos adaptables -->
-      <div class="grid-quick-actions">
-        <a href="#" class="action-card">
-          <div class="icon">🗺️</div>
-          <h3>Alternar Rutas</h3>
-        </a>
-        <button type="button" class="action-card" onclick="document.getElementById('modal-qr').classList.add('is-open')" style="border:1px solid var(--border-color);">
-          <div class="icon">📸</div>
-          <h3>Escanear QR Informativo</h3>
-        </button>
+        </section>
       </div>
 
-      <!-- Código QR -->
-      <section id="qr" class="card-info">
-        <h4>Reporte de Incidentes</h4>
-        <p>
-          Escanea este código QR para reportar incidentes dentro del Santuario de la Naturaleza Dunas de Concón.
-        </p>
-        <div style="text-align:center; margin-top:15px;">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fencuesta-parques.vercel.app%2Fincidentes&qzone=1&margin=0&size=400x400&ecc=L" style="width:180px;">
-          <p style="margin-top:10px; color:var(--text-muted);">
-            INSERTAR IMAGEN DEL QR
+      <!-- COLUMNA LATERAL / DERECHA (INFORMACIÓN, BOTONES Y EDUCACIÓN AMBIENTAL) -->
+      <div class="right-column">
+
+        <!-- Accesos rápidos adaptables -->
+        <div class="grid-quick-actions">
+          <a href="#" class="action-card">
+            <div class="icon">🗺️</div>
+            <h3>Alternar Rutas</h3>
+          </a>
+          <button type="button" class="action-card" onclick="document.getElementById('modal-qr').classList.add('is-open')" style="border:1px solid var(--border-color);">
+            <div class="icon">📸</div>
+            <h3>Escanear QR Informativo</h3>
+          </button>
+        </div>
+
+        <!-- Código QR -->
+        <section id="qr" class="card-info">
+          <h4>Reporte de Incidentes</h4>
+          <p>
+            Escanea este código QR para reportar incidentes dentro del Santuario de la Naturaleza Dunas de Concón.
           </p>
-        </div>
-      </section>
+          <div style="text-align:center; margin-top:15px;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fencuesta-parques.vercel.app%2Fincidentes&qzone=1&margin=0&size=400x400&ecc=L" style="width:180px;">
+            <p style="margin-top:10px; color:var(--text-muted);">
+              INSERTAR IMAGEN DEL QR
+            </p>
+          </div>
+        </section>
 
-      <!-- REQ-03: Educación Ambiental (Ficha de Biodiversidad) -->
-      <section id="flora" class="card-info">
-        <h4>Flora Destacada: La Añañuca</h4>
-        <p>
-          Esta hermosa flor endémica está perfectamente adaptada a las condiciones extremas de las dunas chilenas.
-          Desarrolla raíces profundas para captar la humedad de la vaguada costera.
-          <strong>Recuerde no pisar fuera de los senderos para no dañar sus bulbos subterráneos.</strong>
+        <!-- REQ-03: Educación Ambiental (Ficha de Biodiversidad) -->
+        <section id="flora" class="card-info">
+          <h4>Flora Destacada: La Añañuca</h4>
+          <p>
+            Esta hermosa flor endémica está perfectamente adaptada a las condiciones extremas de las dunas chilenas.
+            Desarrolla raíces profundas para captar la humedad de la vaguada costera.
+            <strong>Recuerde no pisar fuera de los senderos para no dañar sus bulbos subterráneos.</strong>
+          </p>
+        </section>
+
+        <!-- REQ-03: Despliegue Obligatorio de Normativas de Conservación -->
+        <section class="card-info normativa">
+          <h4>Normativa de Conservación Obligatoria</h4>
+          <p>El Santuario de la Naturaleza es un ecosistema protegido por ley. Queda estrictamente prohibido:</p>
+
+          <div class="rules-layout">
+            <div class="rule-box">
+              <span></span>
+              <strong>Vehículos</strong><br>Prohibido motos y 4x4
+            </div>
+            <div class="rule-box">
+              <span></span>
+              <strong>Residuos</strong><br>Lleve su basura consigo
+            </div>
+            <div class="rule-box">
+              <span></span>
+              <strong>Mascotas</strong><br>Solo con correa obligatoria
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-outline" style="margin-top:15px; width:100%;"
+                  onclick="document.getElementById('modal-normativa').classList.add('is-open')">
+            Ver normativa completa
+          </button>
+        </section>
+      </div>
+
+    </main>
+
+    <!-- INFORMACIÓN DEL SANTUARIO (RESUMEN INFERIOR) -->
+    <section class="card-info" style="margin:30px 5%;">
+      <h3>📊 Información del Santuario</h3>
+
+      <div class="rules-layout">
+        <div class="rule-box">
+          <span>🏜️</span>
+          <strong>30 Ha</strong><br>
+          Área protegida
+        </div>
+
+        <div class="rule-box">
+          <span>🌿</span>
+          <strong>50+</strong><br>
+          Especies
+        </div>
+
+        <div class="rule-box">
+          <span></span>
+          <strong>3</strong><br>
+          Senderos
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer>
+      <p>&copy; 2026 Santuario de la Naturaleza Dunas de Concón — Prototipo Digital Integrado (INACAP)</p>
+    </footer>
+
+
+    <!-- ============================================================
+        POPUPS / MODALES
+        Ver style.css sección 13 para entender el sistema.
+        Cada modal está oculto por defecto y se abre agregando
+        la clase "is-open" desde un botón (onclick más arriba).
+        ============================================================ -->
+
+    <!-- Modal: Código QR ampliado -->
+    <div class="modal-overlay" id="modal-qr">
+      <div class="modal-box">
+        <button type="button" class="modal-close" onclick="document.getElementById('modal-qr').classList.remove('is-open')">✕</button>
+        <h3>Código QR de la EcoGuía</h3>
+        <p>Escanéalo con la cámara de tu celular para abrir esta guía directamente en tu teléfono.</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fencuesta-parques.vercel.app%2Fincidentes&qzone=1&margin=0&size=400x400&ecc=L" alt="Código QR EcoGuía Dunas de Concón">
+      </div>
+    </div>
+
+    <!-- Modal: Normativa completa -->
+    <div class="modal-overlay" id="modal-normativa">
+      <div class="modal-box modal-warning">
+        <button type="button" class="modal-close" onclick="document.getElementById('modal-normativa').classList.remove('is-open')">✕</button>
+        <h3> Normativa de Conservación</h3>
+        <p style="text-align:left;">
+          El Santuario de la Naturaleza Dunas de Concón está protegido por ley. Dentro del área protegida queda
+          estrictamente prohibido el ingreso de vehículos motorizados (motos, autos y 4x4), dejar residuos de
+          cualquier tipo, salirse de los senderos demarcados y el ingreso de mascotas sin correa.
         </p>
-      </section>
-
-      <!-- REQ-03: Despliegue Obligatorio de Normativas de Conservación -->
-      <section class="card-info normativa">
-        <h4>Normativa de Conservación Obligatoria</h4>
-        <p>El Santuario de la Naturaleza es un ecosistema protegido por ley. Queda estrictamente prohibido:</p>
-
-        <div class="rules-layout">
-          <div class="rule-box">
-            <span></span>
-            <strong>Vehículos</strong><br>Prohibido motos y 4x4
-          </div>
-          <div class="rule-box">
-            <span></span>
-            <strong>Residuos</strong><br>Lleve su basura consigo
-          </div>
-          <div class="rule-box">
-            <span></span>
-            <strong>Mascotas</strong><br>Solo con correa obligatoria
-          </div>
-        </div>
-
-        <button type="button" class="btn btn-outline" style="margin-top:15px; width:100%;"
-                onclick="document.getElementById('modal-normativa').classList.add('is-open')">
-          Ver normativa completa
+        <p style="text-align:left;">
+          El incumplimiento de esta normativa puede derivar en sanciones según la legislación ambiental vigente
+          y pone en riesgo la flora y fauna endémica del lugar.
+        </p>
+        <button type="button" class="btn btn-primary" style="margin-top:10px;"
+                onclick="document.getElementById('modal-normativa').classList.remove('is-open')">
+          Entendido
         </button>
-      </section>
-    </div>
-
-  </main>
-
-  <!-- INFORMACIÓN DEL SANTUARIO (RESUMEN INFERIOR) -->
-  <section class="card-info" style="margin:30px 5%;">
-    <h3>📊 Información del Santuario</h3>
-
-    <div class="rules-layout">
-      <div class="rule-box">
-        <span>🏜️</span>
-        <strong>30 Ha</strong><br>
-        Área protegida
-      </div>
-
-      <div class="rule-box">
-        <span>🌿</span>
-        <strong>50+</strong><br>
-        Especies
-      </div>
-
-      <div class="rule-box">
-        <span></span>
-        <strong>3</strong><br>
-        Senderos
       </div>
     </div>
-  </section>
 
-  <!-- FOOTER CORPORATIVO -->
-  <footer>
-    <p>&copy; 2026 Santuario de la Naturaleza Dunas de Concón — Prototipo Digital Integrado (INACAP)</p>
-  </footer>
-
-
-  <!-- ============================================================
-       POPUPS / MODALES
-       Ver style.css sección 13 para entender el sistema.
-       Cada modal está oculto por defecto y se abre agregando
-       la clase "is-open" desde un botón (onclick más arriba).
-       ============================================================ -->
-
-  <!-- Modal: Código QR ampliado -->
-  <div class="modal-overlay" id="modal-qr">
-    <div class="modal-box">
-      <button type="button" class="modal-close" onclick="document.getElementById('modal-qr').classList.remove('is-open')">✕</button>
-      <h3>Código QR de la EcoGuía</h3>
-      <p>Escanéalo con la cámara de tu celular para abrir esta guía directamente en tu teléfono.</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fencuesta-parques.vercel.app%2Fincidentes&qzone=1&margin=0&size=400x400&ecc=L" alt="Código QR EcoGuía Dunas de Concón">
+    <!-- Modal: SOS / Emergencia -->
+    <div class="modal-overlay" id="modal-sos">
+      <div class="modal-box modal-warning">
+        <button type="button" class="modal-close" onclick="document.getElementById('modal-sos').classList.remove('is-open')">✕</button>
+        <h3>Asistencia de Emergencia</h3>
+        <p>Si estás viviendo una emergencia dentro del santuario, comunícate de inmediato con:</p>
+        <p style="font-size:1.3rem; font-weight:bold; color:var(--danger);">131 (Ambulancia / SAMU)</p>
+        <p>También puedes contactar a la administración del santuario para apoyo en terreno.</p>
+        <button type="button" class="btn btn-danger" style="margin-top:10px;"
+                onclick="document.getElementById('modal-sos').classList.remove('is-open')">
+          Cerrar
+        </button>
+      </div>
     </div>
-  </div>
 
-  <!-- Modal: Normativa completa -->
-  <div class="modal-overlay" id="modal-normativa">
-    <div class="modal-box modal-warning">
-      <button type="button" class="modal-close" onclick="document.getElementById('modal-normativa').classList.remove('is-open')">✕</button>
-      <h3> Normativa de Conservación</h3>
-      <p style="text-align:left;">
-        El Santuario de la Naturaleza Dunas de Concón está protegido por ley. Dentro del área protegida queda
-        estrictamente prohibido el ingreso de vehículos motorizados (motos, autos y 4x4), dejar residuos de
-        cualquier tipo, salirse de los senderos demarcados y el ingreso de mascotas sin correa.
-      </p>
-      <p style="text-align:left;">
-        El incumplimiento de esta normativa puede derivar en sanciones según la legislación ambiental vigente
-        y pone en riesgo la flora y fauna endémica del lugar.
-      </p>
-      <button type="button" class="btn btn-primary" style="margin-top:10px;"
-              onclick="document.getElementById('modal-normativa').classList.remove('is-open')">
-        Entendido
-      </button>
-    </div>
-  </div>
-
-  <!-- Modal: SOS / Emergencia -->
-  <div class="modal-overlay" id="modal-sos">
-    <div class="modal-box modal-warning">
-      <button type="button" class="modal-close" onclick="document.getElementById('modal-sos').classList.remove('is-open')">✕</button>
-      <h3>Asistencia de Emergencia</h3>
-      <p>Si estás viviendo una emergencia dentro del santuario, comunícate de inmediato con:</p>
-      <p style="font-size:1.3rem; font-weight:bold; color:var(--danger);">131 (Ambulancia / SAMU)</p>
-      <p>También puedes contactar a la administración del santuario para apoyo en terreno.</p>
-      <button type="button" class="btn btn-danger" style="margin-top:10px;"
-              onclick="document.getElementById('modal-sos').classList.remove('is-open')">
-        Cerrar
-      </button>
-    </div>
-  </div>
-
-  <!-- Cierra cualquier modal abierto si se hace clic fuera de la tarjeta -->
-  <script>
-    document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
-      overlay.addEventListener('click', function (event) {
-        if (event.target === overlay) {
-          overlay.classList.remove('is-open');
-        }
+    <!-- Cierra cualquier modal abierto si se hace clic fuera de la tarjeta -->
+    <script>
+      document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
+        overlay.addEventListener('click', function (event) {
+          if (event.target === overlay) {
+            overlay.classList.remove('is-open');
+          }
+        });
       });
-    });
-  </script>
+    </script>
 
-</body>
-</html>
+  </body>
+  </html>
