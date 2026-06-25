@@ -19,12 +19,12 @@
 
     <!-- NUEVO MENÚ DE NAVEGACIÓN ANCLADO -->
     <nav class="main-nav">
-      <a href="#">🏠 Inicio</a>
-      <a href="#ubicacion">📍 Ubicación</a>
-      <a href="#mapa">🗺️ Mapa</a>
-      <a href="#qr">📱 QR</a>
-      <a href="#galeria">📸 Galería</a>
-      <a href="#flora">🌿 Flora y Fauna</a>
+      <a href="#">Inicio</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#qr">QR</a>
+      <a href="#galeria">Galería</a>
+      <a href="#flora">Flora y Fauna</a>
     </nav>
 
     <div class="top-actions">
@@ -38,14 +38,14 @@
 
   <!-- REQ-04: Eficiencia y Rapidez (Alertas críticas en tiempo real inmediatas) -->
   <div class="alert-banner">
-    <span style="font-size: 1.3rem;">⚠️</span>
+    <span style="font-size: 1.3rem;"></span>
     <span><strong>Estado del Viento:</strong> Ráfagas moderadas en zona alta. Se recomienda el uso de anteojos de sol y mantenerse estrictamente dentro de los senderos demarcados.</span>
   </div>
 
   <!-- HERO DE BIENVENIDA -->
   <div class="header-section">
 
-    <h1>🏜️ Bienvenido a las Dunas de Concón</h1>
+    <h1>Bienvenido a las Dunas de Concón</h1>
 
     <p>
       Descubre uno de los ecosistemas más importantes de Chile.
@@ -54,11 +54,11 @@
 
     <br>
 
-    <img src="imagenes/dunas-principal.jpg"
+    <img src="galeria/vista_norte.avif"
          alt="Dunas de Concón">
 
     <p style="margin-top:10px;">
-      📸 INSERTAR IMAGEN PRINCIPAL DE LAS DUNAS
+      INSERTAR IMAGEN PRINCIPAL DE LAS DUNAS
     </p>
 
     <section class="stats-section">
@@ -96,7 +96,7 @@
 
       <!-- Ubicación / Geolocalización -->
       <section id="ubicacion" class="card-info">
-        <h4>📍 ¿Dónde te encuentras?</h4>
+        <h4>¿Dónde te encuentras?</h4>
         <p>
           Utiliza la geolocalización para encontrar rutas seguras,
           miradores y puntos de interés dentro del santuario.
@@ -110,7 +110,7 @@
       <section id="mapa" class="map-section">
         <h2 class="section-title">
           Mapa de Navegación del Santuario
-          <span class="status-badge">📍 Geolocalización Activa</span>
+          <span class="status-badge">Geolocalización Activa</span>
         </h2>
 
         <div class="map-container">
@@ -133,7 +133,7 @@
 
           <!-- Panel informativo de estado de navegación -->
           <div class="ruta-activa-panel">
-            <span style="font-size: 1.8rem;">🚶</span>
+            <span style="font-size: 1.8rem;"></span>
             <div>
               <strong style="font-size: 1rem; color: var(--primary);">Usted está en: Sendero Mirador Sur</strong>
               <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 2px;">Ruta peatonal habilitada. Próximo punto de información QR a 40 metros.</div>
@@ -160,12 +160,12 @@
 
       <!-- Código QR -->
       <section id="qr" class="card-info">
-        <h4>📱 Escanea el código QR</h4>
+        <h4>Reporte de Incidentes</h4>
         <p>
-          Escanea este código para acceder rápidamente a la EcoGuía de las Dunas de Concón.
+          Escanea este código QR para reportar incidentes dentro del Santuario de la Naturaleza Dunas de Concón.
         </p>
         <div style="text-align:center; margin-top:15px;">
-          <img src="imagenes/qr-dunas.png" style="width:180px;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fencuesta-parques.vercel.app%2Fincidentes&qzone=1&margin=0&size=400x400&ecc=L" style="width:180px;">
           <p style="margin-top:10px; color:var(--text-muted);">
             INSERTAR IMAGEN DEL QR
           </p>
@@ -174,7 +174,7 @@
 
       <!-- REQ-03: Educación Ambiental (Ficha de Biodiversidad) -->
       <section id="flora" class="card-info">
-        <h4>🌿 Flora Destacada: La Añañuca</h4>
+        <h4>Flora Destacada: La Añañuca</h4>
         <p>
           Esta hermosa flor endémica está perfectamente adaptada a las condiciones extremas de las dunas chilenas.
           Desarrolla raíces profundas para captar la humedad de la vaguada costera.
@@ -189,15 +189,15 @@
 
         <div class="rules-layout">
           <div class="rule-box">
-            <span>🚫🚙</span>
+            <span></span>
             <strong>Vehículos</strong><br>Prohibido motos y 4x4
           </div>
           <div class="rule-box">
-            <span>🚮</span>
+            <span></span>
             <strong>Residuos</strong><br>Lleve su basura consigo
           </div>
           <div class="rule-box">
-            <span>🐕❌</span>
+            <span></span>
             <strong>Mascotas</strong><br>Solo con correa obligatoria
           </div>
         </div>
@@ -229,7 +229,7 @@
       </div>
 
       <div class="rule-box">
-        <span>🚶</span>
+        <span></span>
         <strong>3</strong><br>
         Senderos
       </div>
@@ -253,9 +253,9 @@
   <div class="modal-overlay" id="modal-qr">
     <div class="modal-box">
       <button type="button" class="modal-close" onclick="document.getElementById('modal-qr').classList.remove('is-open')">✕</button>
-      <h3>📱 Código QR de la EcoGuía</h3>
+      <h3>Código QR de la EcoGuía</h3>
       <p>Escanéalo con la cámara de tu celular para abrir esta guía directamente en tu teléfono.</p>
-      <img src="imagenes/qr-dunas.png" alt="Código QR EcoGuía Dunas de Concón">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=https%3A%2F%2Fencuesta-parques.vercel.app%2Fincidentes&qzone=1&margin=0&size=400x400&ecc=L" alt="Código QR EcoGuía Dunas de Concón">
     </div>
   </div>
 
@@ -263,7 +263,7 @@
   <div class="modal-overlay" id="modal-normativa">
     <div class="modal-box modal-warning">
       <button type="button" class="modal-close" onclick="document.getElementById('modal-normativa').classList.remove('is-open')">✕</button>
-      <h3>⚠️ Normativa de Conservación</h3>
+      <h3> Normativa de Conservación</h3>
       <p style="text-align:left;">
         El Santuario de la Naturaleza Dunas de Concón está protegido por ley. Dentro del área protegida queda
         estrictamente prohibido el ingreso de vehículos motorizados (motos, autos y 4x4), dejar residuos de
@@ -284,7 +284,7 @@
   <div class="modal-overlay" id="modal-sos">
     <div class="modal-box modal-warning">
       <button type="button" class="modal-close" onclick="document.getElementById('modal-sos').classList.remove('is-open')">✕</button>
-      <h3>🚨 Asistencia de Emergencia</h3>
+      <h3>Asistencia de Emergencia</h3>
       <p>Si estás viviendo una emergencia dentro del santuario, comunícate de inmediato con:</p>
       <p style="font-size:1.3rem; font-weight:bold; color:var(--danger);">131 (Ambulancia / SAMU)</p>
       <p>También puedes contactar a la administración del santuario para apoyo en terreno.</p>
