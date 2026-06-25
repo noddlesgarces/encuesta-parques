@@ -54,7 +54,7 @@ function fmt(ts: number) {
 
 function computeAdvanced(responses: SurveyResponse[]) {
   const total = responses.length
-  console.log('computeAdvanced llamado con:', total, 'respuestas')
+
   if (!total) return null
 
   const si = (id: string) => (r: SurveyResponse) => r.answers[id] === 'Sí'
@@ -72,7 +72,7 @@ function computeAdvanced(responses: SurveyResponse[]) {
   // Usuario pasivo: le gusta la app (P3=Sí) pero no la usaría activamente
   const pasivo = responses.filter(r => si('3')(r) && no('7')(r) && no('8')(r)).length
 
-  console.log('prefGuia raw:', prefGuia, '/ pasivo raw:', pasivo)
+
 
   // Perfiles de usuario (P1 × P2)
   const perfilIdeal = responses.filter(r => si('1')(r) && si('2')(r)).length  // visitante + guiado
