@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import type { SurveyPayload } from '@/types'
 import styles from './Survey.module.css'
 
 const QUESTIONS = [
@@ -68,7 +69,6 @@ export default function Survey() {
   const [current, setCurrent] = useState(0)
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [status, setStatus] = useState<'idle' | 'saving' | 'done' | 'error'>('idle')
-  const [savedId, setSavedId] = useState('')
 
   const q = QUESTIONS[current]
   const total = QUESTIONS.length
@@ -88,16 +88,14 @@ export default function Survey() {
 
   async function submit() {
     setStatus('saving')
-    const id = Math.random().toString(36).slice(2, 9)
-    const entry = { id, ts: Date.now(), answers }
+    const payload: SurveyPayload = { answers }
     try {
       const res = await fetch('/api/responses', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(entry),
+        body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error('Error al guardar')
-      setSavedId(id)
       setStatus('done')
     } catch {
       setStatus('error')
@@ -112,8 +110,7 @@ export default function Survey() {
       <div className={styles.done}>
         <div className={styles.doneIcon}>✓</div>
         <h2>¡Respuestas guardadas!</h2>
-        <p>Gracias por participar. Tus respuestas están disponibles en el dashboard.</p>
-        <p className={styles.doneId}>ID: {savedId}</p>
+        <p>Gracias por participar en esta investigación.</p>
       </div>
     )
   }
