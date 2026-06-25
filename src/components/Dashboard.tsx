@@ -31,12 +31,12 @@ const Q_LABELS: Record<string, string> = {
   '9': '¿El reporte de incidentes contribuye al cuidado del parque?',
 }
 
-const COLOR_SI    = '#1D9E75'
-const COLOR_NO    = '#D85A30'
+const COLOR_SI = '#1D9E75'
+const COLOR_NO = '#D85A30'
 const COLOR_IDEAL = '#185fa5'
-const COLOR_SEC   = '#7F77DD'
-const COLOR_PAS   = '#BA7517'
-const COLOR_OUT   = '#888780'
+const COLOR_SEC = '#7F77DD'
+const COLOR_PAS = '#BA7517'
+const COLOR_OUT = '#888780'
 
 function pct(n: number, total: number) {
   if (!total) return 0
@@ -72,31 +72,31 @@ function computeAdvanced(responses: SurveyResponse[]) {
   const pasivo = responses.filter(r => si('3')(r) && no('7')(r) && no('8')(r)).length
 
   // Perfiles de usuario (P1 × P2)
-  const perfilIdeal   = responses.filter(r => si('1')(r) && si('2')(r)).length  // visitante + guiado
-  const perfilSolo    = responses.filter(r => si('1')(r) && no('2')(r)).length  // visitante autónomo
-  const perfilNovato  = responses.filter(r => no('1')(r) && si('2')(r)).length  // no visita pero le gustan guías
-  const perfilFuera   = responses.filter(r => no('1')(r) && no('2')(r)).length  // fuera del target
+  const perfilIdeal = responses.filter(r => si('1')(r) && si('2')(r)).length  // visitante + guiado
+  const perfilSolo = responses.filter(r => si('1')(r) && no('2')(r)).length  // visitante autónomo
+  const perfilNovato = responses.filter(r => no('1')(r) && si('2')(r)).length  // no visita pero le gustan guías
+  const perfilFuera = responses.filter(r => no('1')(r) && no('2')(r)).length  // fuera del target
 
   // Radar de dimensiones (0-100)
   const radarData = [
-    { dimension: 'Adopción',    valor: pct(adopcion, total) },
-    { dimension: 'Fidelidad',   valor: pct(fidelidad, total) },
-    { dimension: 'QR',          valor: pct(responses.filter(si('5')).length, total) },
-    { dimension: 'Autonomía',   valor: pct(responses.filter(si('6')).length, total) },
-    { dimension: 'Registro',    valor: pct(responses.filter(si('7')).length, total) },
-    { dimension: 'Reporte',     valor: pct(responses.filter(si('8')).length, total) },
+    { dimension: 'Adopción', valor: pct(adopcion, total) },
+    { dimension: 'Fidelidad', valor: pct(fidelidad, total) },
+    { dimension: 'QR', valor: pct(responses.filter(si('5')).length, total) },
+    { dimension: 'Autonomía', valor: pct(responses.filter(si('6')).length, total) },
+    { dimension: 'Registro', valor: pct(responses.filter(si('7')).length, total) },
+    { dimension: 'Reporte', valor: pct(responses.filter(si('8')).length, total) },
   ]
 
   return {
     total,
-    adopcion:    pct(adopcion, total),
-    fidelidad:   pct(fidelidad, total),
-    prefGuia:    pct(prefGuia, total),
-    pasivo:      pct(pasivo, total),
+    adopcion: pct(adopcion, total),
+    fidelidad: pct(fidelidad, total),
+    prefGuia: pct(prefGuia, total),
+    pasivo: pct(pasivo, total),
     perfiles: [
-      { name: 'Visitante guiado',  value: perfilIdeal,  color: COLOR_IDEAL, desc: 'Usuario ideal · P1+P2 Sí' },
-      { name: 'Visitante autónomo', value: perfilSolo,  color: COLOR_SEC,   desc: 'Target secundario · P1 Sí, P2 No' },
-      { name: 'Sin visitas',        value: perfilNovato + perfilFuera, color: COLOR_OUT, desc: 'Fuera del target · P1 No' },
+      { name: 'Visitante guiado', value: perfilIdeal, color: COLOR_IDEAL, desc: 'Usuario ideal · P1+P2 Sí' },
+      { name: 'Visitante autónomo', value: perfilSolo, color: COLOR_SEC, desc: 'Target secundario · P1 Sí, P2 No' },
+      { name: 'Sin visitas', value: perfilNovato + perfilFuera, color: COLOR_OUT, desc: 'Fuera del target · P1 No' },
     ],
     radarData,
   }
@@ -293,15 +293,22 @@ function AdvancedSection({ responses }: { responses: SurveyResponse[] }) {
 
 export default function Dashboard() {
   const [responses, setResponses] = useState<SurveyResponse[]>([])
-  const [loading, setLoading]     = useState(true)
+  const [loading, setLoading] = useState(true)
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
   const [autoRefresh, setAutoRefresh] = useState(true)
   const [view, setView] = useState<'donuts' | 'overview'>('donuts')
 
   const load = useCallback(async () => {
     try {
-      const res  = await fetch('/api/responses')
+      const res = await fetch('/api/responses')
       const data: SurveyResponse[] = await res.json()
+
+      // ← agrega esto
+      console.log('Primera respuesta completa:', JSON.stringify(data[0], null, 2))
+      console.log('Answers de la primera:', data[0]?.answers)
+      console.log('P5 value:', data[0]?.answers['5'])
+      console.log('P5 === Sí:', data[0]?.answers['5'] === 'Sí')
+
       setResponses(data)
       setLastUpdate(new Date())
     } catch { /* silencioso */ } finally {
@@ -317,9 +324,9 @@ export default function Dashboard() {
     return () => clearInterval(iv)
   }, [autoRefresh, load])
 
-  const total    = responses.length
-  const siCount  = (qId: string) => responses.filter(r => r.answers[qId] === 'Sí').length
-  const appPct   = total
+  const total = responses.length
+  const siCount = (qId: string) => responses.filter(r => r.answers[qId] === 'Sí').length
+  const appPct = total
     ? pct(responses.filter(r => r.answers['3'] === 'Sí' && r.answers['4'] === 'Sí').length, total)
     : null
 
@@ -336,8 +343,8 @@ export default function Dashboard() {
           <p className={styles.sub}>
             {loading ? 'Cargando...'
               : lastUpdate
-              ? `${total} respuesta${total !== 1 ? 's' : ''} · actualizado ${lastUpdate.toLocaleTimeString('es-CL')}`
-              : ''}
+                ? `${total} respuesta${total !== 1 ? 's' : ''} · actualizado ${lastUpdate.toLocaleTimeString('es-CL')}`
+                : ''}
           </p>
         </div>
         <div className={styles.actions}>
