@@ -1,15 +1,24 @@
+import { randomUUID } from 'crypto'
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { Redis } from '@upstash/redis'
-import type { SurveyResponse } from '@/types'
+import type { SurveyResponse, SurveyPayload } from '@/types'
 
 const redis = Redis.fromEnv()
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
-    const entry: SurveyResponse = req.body
-    if (!entry || !entry.id || !entry.answers) {
+    const payload: SurveyPayload = req.body
+
+    if (!payload || !payload.answers) {
       return res.status(400).json({ error: 'Payload inválido' })
     }
+
+    const entry: SurveyResponse = {
+      id: randomUUID(),
+      ts: Date.now(),
+      answers: payload.answers,
+    }
+
     await redis.lpush('responses', JSON.stringify(entry))
     return res.status(200).json({ ok: true })
   }
